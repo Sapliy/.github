@@ -12,16 +12,46 @@ Everything in Sapliy reduces to **4 core concepts**:
 
 ```mermaid
 graph TD
-    Org[🔑 Organization] --> Zone1[🧩 Zone: Production]
-    Org --> Zone2[🧩 Zone: Staging]
-    Zone1 --> Event1[⚡ Events]
-    Zone1 --> Flow1[🔄 Flows]
-    Zone2 --> Event2[⚡ Events]
-    Zone2 --> Flow2[🔄 Flows]
-    Event1 --> Flow1
-    Event2 --> Flow2
-    Flow1 --> Actions[📤 Actions]
-    Flow2 --> Actions
+    subgraph Organization["🔑 Organization"]
+        direction TB
+        subgraph ZoneProd["🧩 Zone: Production"]
+            direction TB
+            P_Events[⚡ Events]
+            P_Flows[🔄 Flows]
+            P_Events --> P_Flows
+        end
+        
+        subgraph ZoneStaging["🧩 Zone: Staging"]
+            direction TB
+            S_Events[🧪 Events]
+            S_Flows[🔄 Flows]
+            S_Events --> S_Flows
+        end
+    end
+
+    subgraph FlowEngine["⚙️ Execution Engine"]
+        Logic{Logic & Rules}
+        Approval[👤 Approval]
+        Audit[📝 Audit]
+    end
+
+    subgraph Outputs["📤 Actions & Ledger"]
+        Ledger[(💰 Ledger)]
+        Webhook[🌐 Webhook]
+        Notify[✉️ Notify]
+    end
+
+    P_Flows --> Logic
+    S_Flows --> Logic
+    
+    Logic --> Approval
+    Approval --> Audit
+    Audit --> Webhook
+    Audit --> Notify
+    Audit --> Ledger
+
+    classDef zone fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    class ZoneProd,ZoneStaging zone;
 ```
 
 ### 🔑 Organization
@@ -224,12 +254,12 @@ Revenue drivers:
 
 ## Related Repositories
 
-- [fintech-automation](https://github.com/sapliy/fintech-automation) — Flow Builder UI
 - [fintech-ecosystem](https://github.com/sapliy/fintech-ecosystem) — Core backend services
 - [fintech-sdk-node](https://github.com/sapliy/fintech-sdk-node) — Node.js SDK
 - [fintech-sdk-go](https://github.com/sapliy/fintech-sdk-go) — Go SDK
 - [fintech-sdk-python](https://github.com/sapliy/fintech-sdk-python) — Python SDK
 - [fintech-ui](https://github.com/sapliy/fintech-ui) — React components
+- [fintech-automation](https://github.com/sapliy/fintech-automation) — Flow Builder UI
 - [sapliy-cli](https://github.com/sapliy/sapliy-cli) — Developer CLI
 - [fintech-docs](https://github.com/sapliy/fintech-docs) — Documentation site
 
