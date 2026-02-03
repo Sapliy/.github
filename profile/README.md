@@ -224,14 +224,14 @@ Revenue drivers:
 
 ## Related Repositories
 
-- [fintech-ecosystem](./fintech-ecosystem) — Core backend services
-- [fintech-sdk-node](./fintech-sdk-node) — Node.js SDK
-- [fintech-sdk-go](./fintech-sdk-go) — Go SDK
-- [fintech-sdk-python](./fintech-sdk-python) — Python SDK
-- [fintech-ui](./fintech-ui) — React components
-- [fintech-automation](./fintech-automation) — Flow Builder UI
-- [sapliy-cli](./sapliy-cli) — Developer CLI
-- [fintech-docs](./fintech-docs) — Documentation site
+- [fintech-automation](https://github.com/sapliy/fintech-automation) — Flow Builder UI
+- [fintech-ecosystem](https://github.com/sapliy/fintech-ecosystem) — Core backend services
+- [fintech-sdk-node](https://github.com/sapliy/fintech-sdk-node) — Node.js SDK
+- [fintech-sdk-go](https://github.com/sapliy/fintech-sdk-go) — Go SDK
+- [fintech-sdk-python](https://github.com/sapliy/fintech-sdk-python) — Python SDK
+- [fintech-ui](https://github.com/sapliy/fintech-ui) — React components
+- [sapliy-cli](https://github.com/sapliy/sapliy-cli) — Developer CLI
+- [fintech-docs](https://github.com/sapliy/fintech-docs) — Documentation site
 
 ---
 
